@@ -60,22 +60,12 @@ export function App() {
 
         <div style="padding: 2rem 2rem 0;">
           <div style={{ ...island, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "calc(100vh - 72px - 4rem)", padding: "4rem 2rem", textAlign: "center" }}>
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; border: 1px solid rgba(168,85,247,0.3); background: rgba(168,85,247,0.08); padding: 0.375rem 1rem; margin-bottom: 2rem;">
-              <span style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(216,180,254,0.8);">
-                Minecraft 1.8.9
-              </span>
-            </div>
-
             <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1.25rem;">
               <img src="/image/logo.png" alt="Alya logo" style="height: clamp(4rem, 13vw, 8rem); width: auto;" />
               <h1 style="font-family: 'Geist', sans-serif; font-size: clamp(5rem, 16vw, 10rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; color: #fff; margin: 0;">
                 Alya
               </h1>
             </div>
-
-            <p style="font-size: 1rem; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.25rem;">
-              Utility Mod
-            </p>
 
             <p style="max-width: 380px; font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.32); margin-bottom: 3rem;">
               A minimal, performance-focused utility mod for Minecraft 1.8.9.
