@@ -3,23 +3,15 @@ import { NoiseButton } from "./components/NoiseButton.tsx";
 import { Header } from "./components/Header.tsx";
 import { ScreenshotGallery } from "./components/ScreenshotGallery.tsx";
 
-const island = {
-  borderRadius: "16px",
-  border: "1px solid rgba(255,255,255,0.07)",
-  background: "rgba(255,255,255,0.045)",
-  backdropFilter: "blur(8px)",
-  WebkitBackdropFilter: "blur(8px)",
-};
-
 const modules: { category: string; name: string; desc: string }[] = [
-  // Combat
+  // combat
   { category: "Combat", name: "Killaura", desc: "Automatically attacks nearby entities within range. Has legit rotation modes to mimic natural mouse movement." },
   { category: "Combat", name: "Velocity", desc: "Reduces or cancels knockback received from hits, letting you hold your position in fights." },
   { category: "Combat", name: "Criticals", desc: "Ensures every hit registers as a critical hit by mimicking a small hop at the moment of attack." },
   { category: "Combat", name: "Autoclicker", desc: "Automates left clicks at a configurable CPS range to maintain consistent attack speed." },
   { category: "Combat", name: "Click Assist", desc: "Boosts your natural clicks to a higher effective CPS without fully automating input." },
   { category: "Combat", name: "Target Strafe", desc: "Automatically circles around your current target to make you harder to hit." },
-  // Movement
+  // movement
   { category: "Movement", name: "Flight", desc: "Let's you fly. Supports Vanilla and bypass modes." },
   { category: "Movement", name: "Speed", desc: "Increases your horizontal movement speed beyond the normal sprint cap." },
   { category: "Movement", name: "Longjump", desc: "Boosts the distance covered on a single jump, useful for crossing gaps." },
@@ -32,15 +24,15 @@ const modules: { category: string; name: string; desc: string }[] = [
   { category: "Render", name: "Arraylist", desc: "Lists all currently active modules on screen so you always know what's enabled." },
   { category: "Render", name: "Ambience", desc: "Change the time of day client-side to your liking." },
   { category: "Render", name: "ESP", desc: "Draws boxes or outlines around players and entities through walls." },
-  // Player
+  // player
   { category: "Player", name: "Sprint", desc: "Forces your character to sprint at all times, with modes for strafing or going backwards." },
   { category: "Player", name: "No Jump Delay", desc: "Removes the client-side delay between consecutive jumps for faster jumping." },
   { category: "Player", name: "No Right Click Delay", desc: "Eliminates the cooldown on right-click actions such as placing blocks or using items." },
   { category: "Player", name: "NoFall", desc: "Prevents fall damage." },
   { category: "Player", name: "Legit Scaffold", desc: "Auto-sneak on edge of block while building a bridge." },
-  // World
+  // world
   { category: "World", name: "Timer", desc: "Speeds up or slows down the game's internal tick rate, affecting movement and attack speed." },
-  // Misc
+  // misc
   { category: "Misc", name: "Disabler", desc: "Sends specific packets to confuse or disable anti-cheat detection when supported." },
 ];
 
@@ -52,27 +44,25 @@ const stats = [
 
 export function App() {
   return (
-    <div style="min-height: 100vh; background: #060310; color: #fff; position: relative;">
+    <div class="page">
       <ShaderCanvas />
       <Header />
 
-      <div style="position: relative; z-index: 10; padding-top: 72px; display: flex; flex-direction: column; gap: 2rem; padding-bottom: 6rem;">
+      <div class="page-content">
 
-        <div style="padding: 2rem 2rem 0;">
-          <div style={{ ...island, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "calc(100vh - 72px - 4rem)", padding: "4rem 2rem", textAlign: "center" }}>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1.25rem;">
-              <img src="/image/logo.png" alt="Alya logo" style="height: clamp(4rem, 13vw, 8rem); width: auto;" />
-              <h1 style="font-family: 'Geist', sans-serif; font-size: clamp(5rem, 16vw, 10rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; color: #fff; margin: 0;">
-                Alya
-              </h1>
+        <div class="hero">
+          <div class="island hero-island">
+            <div class="hero-logo-row">
+              <img src="/image/logo.png" alt="Alya logo" class="hero-logo" />
+              <h1 class="hero-title">Alya</h1>
             </div>
 
-            <p style="max-width: 380px; font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.32); margin-bottom: 3rem;">
+            <p class="hero-subtitle">
               A minimal, performance-focused utility mod for Minecraft 1.8.9.
               Built for precision. Designed to stay out of your way.
             </p>
 
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+            <div class="hero-buttons">
               <NoiseButton href="https://github.com/AlyaClient/alya/releases/" variant="primary">
                 Download
               </NoiseButton>
@@ -83,37 +73,33 @@ export function App() {
           </div>
         </div>
 
-        <div style="padding: 0 2rem; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;">
-          <div style={{ ...island, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", padding: "2rem" }}>
+        <div class="island-wrapper">
+          <div class="island stats-grid">
             {stats.map(({ value, label }) => (
-              <div key={label} style="text-align: center; padding: 1rem;">
-                <p style="font-family: 'Geist', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">{value}</p>
-                <p style="font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3);">{label}</p>
+              <div key={label} class="stat-item">
+                <p class="stat-value">{value}</p>
+                <p class="stat-label">{label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div style="padding: 0 2rem; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;">
-          <div style={{ ...island, padding: "2.5rem" }}>
-            <p style="font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 2rem; text-align: center;">
-              Screenshots
-            </p>
+        <div class="island-wrapper">
+          <div class="island section-island">
+            <p class="section-heading">Screenshots</p>
             <ScreenshotGallery />
           </div>
         </div>
 
-        <div style="padding: 0 2rem; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;">
-          <div style={{ ...island, padding: "2.5rem" }}>
-            <p style="font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 2rem; text-align: center;">
-              Modules
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden;">
+        <div class="island-wrapper">
+          <div class="island section-island">
+            <p class="section-heading">Modules</p>
+            <div class="modules-grid">
               {modules.map(({ category, name, desc }) => (
-                <div key={name} style="padding: 1.75rem; background: rgba(255,255,255,0.02);">
-                  <p style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(168,85,247,0.7); margin-bottom: 0.375rem;">{category}</p>
-                  <p style="font-family: 'Geist', sans-serif; font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;">{name}</p>
-                  <p style="font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.35);">{desc}</p>
+                <div key={name} class="module-card">
+                  <p class="module-category">{category}</p>
+                  <p class="module-name">{name}</p>
+                  <p class="module-description">{desc}</p>
                 </div>
               ))}
             </div>
