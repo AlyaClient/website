@@ -73,7 +73,7 @@ export function App() {
             </p>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-              <NoiseButton href="https://github.com/AlyaClient/alya/releases/download/" variant="primary">
+              <NoiseButton href="https://github.com/AlyaClient/alya/releases/" variant="primary">
                 Download
               </NoiseButton>
               <NoiseButton href="https://github.com/AlyaClient/alya" variant="secondary">
