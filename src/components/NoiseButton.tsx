@@ -10,12 +10,12 @@ interface NoiseButtonProps {
 export function NoiseButton(
   { children, href, variant = "primary" }: NoiseButtonProps,
 ) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasReference = useRef<HTMLCanvasElement>(null);
+  const containerReference = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
+    const canvas = canvasReference.current;
+    const container = containerReference.current;
     if (!canvas || !container) return;
 
     let animationId = 0;
@@ -51,35 +51,49 @@ export function NoiseButton(
     };
   }, []);
 
-  const buttonStyle = variant === "primary"
-    ? { background: "#7c3aed" }
+  const containerStyle = variant === "primary"
+    ? {
+        position: "relative" as const,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "12px",
+        background: "#7c3aed",
+        boxShadow: "0 0 24px rgba(124,58,237,0.35)",
+        cursor: "pointer",
+        userSelect: "none" as const,
+      }
     : {
-      background: "rgba(124,58,237,0.12)",
-      border: "1px solid rgba(168,85,247,0.35)",
-    };
+        position: "relative" as const,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "12px",
+        background: "rgba(124,58,237,0.12)",
+        border: "1px solid rgba(168,85,247,0.3)",
+        cursor: "pointer",
+        userSelect: "none" as const,
+      };
 
-  const inner = (
-    <div
-      ref={containerRef}
-      class="relative rounded-xl cursor-pointer select-none group"
-      style={{ ...buttonStyle, display: "inline-flex", alignItems: "center", justifyContent: "center" }}
-    >
-      <div class="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+  const buttonContent = (
+    <div ref={containerReference} style={containerStyle}>
+      <div style={{ position: "absolute", inset: 0, borderRadius: "12px", overflow: "hidden", pointerEvents: "none" }}>
         <canvas
-          ref={canvasRef}
-          class="absolute inset-0 w-full h-full"
-          style="opacity: 0.25; mix-blend-mode: overlay;"
+          ref={canvasReference}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.25, mixBlendMode: "overlay" }}
         />
       </div>
       <div
-        class="relative font-medium tracking-wide"
         style={{
+          position: "relative",
           zIndex: 10,
-          color: variant === "primary" ? "#fff" : "rgba(216,180,254,0.9)",
+          fontFamily: "'SF', sans-serif",
+          fontWeight: 500,
           fontSize: "0.875rem",
           letterSpacing: "0.05em",
           whiteSpace: "nowrap",
           padding: "0.625rem 1.75rem",
+          color: variant === "primary" ? "#fff" : "rgba(216,180,254,0.9)",
         }}
       >
         {children}
@@ -89,18 +103,23 @@ export function NoiseButton(
 
   if (href) {
     return (
-      <a href={href} style="display: inline-block; text-decoration: none;">
-        {inner}
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: "inline-block", textDecoration: "none" }}
+      >
+        {buttonContent}
       </a>
     );
   }
 
   return (
     <button
-      style="display: inline-block; border: none; background: transparent; padding: 0; cursor: pointer;"
+      style={{ display: "inline-block", border: "none", background: "transparent", padding: 0, cursor: "pointer" }}
       type="button"
     >
-      {inner}
+      {buttonContent}
     </button>
   );
 }
