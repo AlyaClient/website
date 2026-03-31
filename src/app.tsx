@@ -12,36 +12,48 @@ const island = {
 };
 
 const modules: { category: string; name: string; desc: string }[] = [
-  // Combat
-  { category: "Combat", name: "Killaura", desc: "Automatically attacks nearby entities within range. Has legit rotation modes to mimic natural mouse movement." },
+  // combat
+  { category: "Combat", name: "KeepSprint", desc: "Prevents your sprint from resetting when you hit an entity, maintaining forward momentum." },
+  { category: "Combat", name: "KillAura", desc: "Automatically attacks nearby entities within range. Has legit rotation modes to mimic natural mouse movement." },
   { category: "Combat", name: "Velocity", desc: "Reduces or cancels knockback received from hits, letting you hold your position in fights." },
   { category: "Combat", name: "Criticals", desc: "Ensures every hit registers as a critical hit by mimicking a small hop at the moment of attack." },
   { category: "Combat", name: "Autoclicker", desc: "Automates left clicks at a configurable CPS range to maintain consistent attack speed." },
   { category: "Combat", name: "Click Assist", desc: "Boosts your natural clicks to a higher effective CPS without fully automating input." },
+  { category: "Combat", name: "Hitboxes", desc: "Expands the hitbox size of other entities, making them easier to hit at range." },
+  { category: "Combat", name: "Reach", desc: "Extends your attack reach distance beyond the default, letting you hit targets from further away." },
   { category: "Combat", name: "Target Strafe", desc: "Automatically circles around your current target to make you harder to hit." },
-  // Movement
+  // movement
   { category: "Movement", name: "Flight", desc: "Let's you fly. Supports Vanilla and bypass modes." },
   { category: "Movement", name: "Speed", desc: "Increases your horizontal movement speed beyond the normal sprint cap." },
-  { category: "Movement", name: "Longjump", desc: "Boosts the distance covered on a single jump, useful for crossing gaps." },
-  { category: "Movement", name: "Highjump", desc: "Increases jump height to reach elevated positions without a ladder or block." },
+  { category: "Movement", name: "Step", desc: "Allows you to walk up blocks instantly without needing to jump." },
+  { category: "Movement", name: "Jesus", desc: "Lets you walk on water (and lava) as if they were solid blocks." },
+  { category: "Movement", name: "LongJump", desc: "Boosts the distance covered on a single jump." },
+  { category: "Movement", name: "HighJump", desc: "Increases jump height to reach elevated positions without a ladder or block." },
   { category: "Movement", name: "Wee", desc: "Don't ask." },
+  // render
   { category: "Render", name: "ClickGUI", desc: "The interface for toggling and configuring all modules. Press a keybind to open." },
   { category: "Render", name: "HUD", desc: "Displays a customisable overlay including coordinates (soon™), FPS, server info (soon™), and more (soon™)." },
   { category: "Render", name: "Keystrokes", desc: "Shows your W/A/S/D/Jump and click inputs on screen in real time." },
-  { category: "Render", name: "Fullbright", desc: "Removes all darkness from the game world, making caves and dark areas fully visible." },
+  { category: "Render", name: "Fulbright", desc: "Removes all darkness from the game world, making caves and dark areas fully visible." },
   { category: "Render", name: "Arraylist", desc: "Lists all currently active modules on screen so you always know what's enabled." },
   { category: "Render", name: "Ambience", desc: "Change the time of day client-side to your liking." },
   { category: "Render", name: "ESP", desc: "Draws boxes or outlines around players and entities through walls." },
-  // Player
+  // player
   { category: "Player", name: "Sprint", desc: "Forces your character to sprint at all times, with modes for strafing or going backwards." },
+  { category: "Player", name: "NoSlow", desc: "Removes the slowdown caused by using items like swords, bows, or food while moving." },
+  { category: "Player", name: "Inventory", desc: "Automates inventory management tasks such as sorting, cleaning, or equipping armor." },
+  { category: "Player", name: "Blink", desc: "Queues outgoing packets so the server freezes your position, then releases them all at once." },
   { category: "Player", name: "No Jump Delay", desc: "Removes the client-side delay between consecutive jumps for faster jumping." },
   { category: "Player", name: "No Right Click Delay", desc: "Eliminates the cooldown on right-click actions such as placing blocks or using items." },
   { category: "Player", name: "NoFall", desc: "Prevents fall damage." },
   { category: "Player", name: "Legit Scaffold", desc: "Auto-sneak on edge of block while building a bridge." },
-  // World
+  { category: "Player", name: "Scaffold", desc: "Automatically places blocks beneath you as you walk, allowing you to bridge quickly." },
+  // world
   { category: "World", name: "Timer", desc: "Speeds up or slows down the game's internal tick rate, affecting movement and attack speed." },
-  // Misc
-  { category: "Misc", name: "Disabler", desc: "Sends specific packets to confuse or disable anti-cheat detection when supported." },
+  // exploit
+  { category: "Exploit", name: "Disabler", desc: "Sends specific packets to confuse or disable anti-cheat detection when supported." },
+  // misc
+  { category: "Misc", name: "Hacker Detector", desc: "Monitors other players for suspicious behavior and alerts you when cheats are detected." },
 ];
 
 const stats = [
@@ -57,7 +69,6 @@ export function App() {
       <Header />
 
       <div style="position: relative; z-index: 10; padding-top: 72px; display: flex; flex-direction: column; gap: 2rem; padding-bottom: 6rem;">
-
         <div style="padding: 2rem 2rem 0;">
           <div style={{ ...island, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "calc(100vh - 72px - 4rem)", padding: "4rem 2rem", textAlign: "center" }}>
             <div style="display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 9999px; border: 1px solid rgba(168,85,247,0.3); background: rgba(168,85,247,0.08); padding: 0.375rem 1rem; margin-bottom: 2rem;">
@@ -83,7 +94,7 @@ export function App() {
             </p>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-              <NoiseButton href="https://github.com/AlyaClient/alya/releases/download/" variant="primary">
+              <NoiseButton href="https://github.com/AlyaClient/alya/releases/download/latest/alya-release.zip" variant="primary">
                 Download
               </NoiseButton>
               <NoiseButton href="https://github.com/AlyaClient/alya" variant="secondary">
