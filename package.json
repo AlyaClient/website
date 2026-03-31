@@ -12,6 +12,9 @@
     "preact": "^10.27.2",
     "@preact/signals": "^2.5.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.1",
     "tailwindcss": "^4.1.10",
