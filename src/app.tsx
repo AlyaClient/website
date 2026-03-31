@@ -63,7 +63,7 @@ export function App() {
             </p>
 
             <div class="hero-buttons">
-              <NoiseButton href="https://github.com/AlyaClient/alya/releases/" variant="primary">
+              <NoiseButton href="https://github.com/AlyaClient/alya/releases/download/latest/alya-release.zip" variant="primary">
                 Download
               </NoiseButton>
               <NoiseButton href="https://github.com/AlyaClient/alya" variant="secondary">
