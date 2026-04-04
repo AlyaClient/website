@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The best hack client">
+    <meta property="og:title" content="Alya Client Home Page">
+    <meta name="robots" content="noai, noimageai">
     <title>Alya Client - The best hack client</title>
 
-    <link fetchpriority=high href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/app.js" as="script">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Alya",
+            "alternateName": "Alya Client",
+            "url": "https://alya.thoq.com",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Windows, macOS, Linux",
+            "programmingLanguage": "Java",
+            "description": "A high-performance, open-source Minecraft client focused on optimization and extensibility.",
+            "softwareVersion": "1.0",
+            "author": {
+                "@type": "Organization",
+                "name": "Thoq"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "downloadUrl": "https://github.com/alyaclient/alya",
+            "featureList": "Performance optimizations, custom UI, open-source Java implementation, hack client, cheat, minecraft client"
+        }
+    </script>
+
+    <link fetchpriority=high href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link fetchpriority=high rel="stylesheet" href="/styles.css">
 </head>
@@ -15,11 +50,12 @@
 <nav class="navbar" role="navigation" aria-label="Header">
     <div class="container">
         <a class="navbar-brand" aria-label="Home" href="/">
-            <img src="/image/logo.png" width="64" height="64" alt="">
+            <img fetchpriority="high" src="/image/logo.png" width="64" height="64" alt="Alya Logo">
         </a>
 
         <div class="ms-auto d-flex gap-4">
             <a target="_blank" href="https://github.com/alyaclient"
+               rel="author"
                class="nav-link-custom text-decoration-none">GitHub</a>
 
             <a target="_blank" href="https://discord.gg/J3XUnGaZjQ"
@@ -37,7 +73,7 @@
                 user-friendly interface.</p>
 
             <a class="btn-alya" href="https://github.com/AlyaClient/alya/releases/download/latest/alya-release.zip">
-                Download
+                Download Latest Release
             </a>
         </div>
     </section>
