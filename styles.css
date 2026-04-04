@@ -1,0 +1,183 @@
+@font-face {
+    font-family: 'SF';
+    src: url('/fonts/SF-UI-Display-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('/fonts/Lato-Bold.ttf');
+}
+
+:root {
+    --background-color: hsl(223 13 10);
+    --background-color-transparent: hsl(223 14% 10% / 0.59);
+    --header-background-color: hsl(227 13 13);
+    --card-background-color: hsl(227 14 13);
+    --accent: hsl(274 76 70);
+    --accent-hover: hsl(274 42 56);
+    --color-text: hsl(0 0 95);
+    font-family: "SF", sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--header-background-color);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: "SF", sans-serif;
+    font-size: 1rem;
+}
+
+
+.button {
+    background-color: var(--accent);
+    color: var(--color-text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    border-radius: 999px;
+    font-size: 1rem;
+    width: 25%;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--accent-hover);
+}
+
+div.card {
+    background-color: var(--header-background-color);
+    padding: 1rem 4rem;
+    border-radius: 0;
+    box-shadow: 30px 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    i {
+        color: var(--accent);
+        scale: 2;
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 20vw;
+    gap: 1rem;
+    font-size: 0.7rem;
+    font-family: "Lato-Bold", sans-serif;
+    background-color: var(--header-background-color);
+    justify-content: space-between;
+
+    nav {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+section {
+    background-color: var(--background-color);
+}
+
+section.hero {
+    width: 100vw;
+    height: 50vh;
+    background-image: url('/image/bg.png');
+    background-attachment: fixed;
+    animation-timeline: scroll();
+    position: relative;
+    animation: parallax linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    .title {
+        font-size: 2.5rem;
+        font-family: "SF", sans-serif;
+        margin-bottom: 0.7rem;
+    }
+
+    @media (max-width: 768px) {
+        .subtitle {
+            padding: 0 1rem;
+        }
+    }
+
+    .subtitle, .button {
+        margin-top: -1rem;
+    }
+}
+
+section.features {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 9vw;
+
+    div.cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+        padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+        div.cards {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+    }
+}
+
+footer {
+    min-height: 15vh;
+    background-color: var(--header-background-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 10vw;
+}
+
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--background-color-transparent);
+    color: var(--color-text);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.show-flex {
+    display: flex;
+}
+
+@keyframes parallax {
+    from {
+        background-position: bottom 0 center;
+    }
+    to {
+        background-position: bottom -400px center;
+    }
+}
