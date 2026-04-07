@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'SF';
+    src: url('/fonts/SF-UI-Display-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('/fonts/Lato-Bold.ttf');
+}
+
+:root {
+    --background-color: hsl(223 13% 10%);
+    --background-color-transparent: hsl(223 14% 10% / 0.59);
+    --header-background-color: hsl(227 13% 13%);
+    --card-background-color: hsl(227 14% 13%);
+    --accent: hsl(274 76% 70%);
+    --accent-hover: hsl(274 42% 56%);
+    --color-text: hsl(0 0% 100%);
+}
+
+body {
+    background-color: var(--header-background-color);
+    color: var(--color-text);
+    font-family: "SF", sans-serif;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: var(--header-background-color);
+    max-width: 100vw;
+}
+
+.nav-link-custom {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: "SF", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+section.hero {
+    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/image/bg.png') fixed center;
+    min-height: 60vh;
+}
+
+section.features {
+    background-color: var(--background-color) !important;
+}
+
+.btn-alya {
+    background-color: var(--accent);
+    color: var(--color-text);
+    border: none;
+    padding: 0.75rem 2.5rem;
+    min-width: 20vw;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 999px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-alya:hover {
+    background-color: var(--accent-hover);
+    color: var(--color-text);
+}
+
+.feature-card {
+    background-color: var(--header-background-color);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    svg {
+        color: var(--accent);
+        font-size: 2.5rem;
+    }
+
+}
+
+footer {
+    background-color: var(--header-background-color);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--background-color-transparent);
+    color: var(--color-text);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes parallax {
+    from {
+        background-position: bottom 0 center;
+    }
+    to {
+        background-position: bottom -400px center;
+    }
+}

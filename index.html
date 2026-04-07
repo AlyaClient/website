@@ -1,12 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alya</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!doctype html>
+<html lang="en" role="document">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The best hack client">
+    <meta property="og:title" content="Alya Client Home Page">
+    <meta name="robots" content="noai, noimageai">
+    <meta name="darkreader" content="nya">
+    <meta name="darkreader-lock" />
+
+    <title>Alya Client - The best hack client</title>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="/styles.css" as="style">
+    <link rel="preload" href="/app.js" as="script">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Alya",
+            "alternateName": "Alya Client",
+            "url": "https://alya.thoq.com",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Windows, macOS, Linux",
+            "programmingLanguage": "Java",
+            "description": "A high-performance, open-source Minecraft client focused on optimization and extensibility.",
+            "softwareVersion": "1.0",
+            "author": {
+                "@type": "Organization",
+                "name": "Thoq"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "downloadUrl": "https://github.com/alyaclient/alya",
+            "featureList": "Performance optimizations, custom UI, open-source Java implementation, hack client, cheat, minecraft client"
+        }
+    </script>
+
+    <link fetchpriority=high href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link fetchpriority=high rel="stylesheet" href="/styles.css">
+</head>
+<body role="document">
+
+<nav class="navbar" role="navigation" aria-label="Header">
+    <div class="container">
+        <a class="navbar-brand" aria-label="Home" href="/">
+            <img fetchpriority="high" src="/image/logo.png" width="64" height="64" alt="Alya Logo">
+        </a>
+
+        <div class="ms-auto d-flex gap-4">
+            <a target="_blank" href="https://github.com/alyaclient"
+               rel="author"
+               class="nav-link-custom text-decoration-none">GitHub</a>
+
+            <a target="_blank" href="https://discord.gg/J3XUnGaZjQ"
+               class="nav-link-custom text-decoration-none">Discord</a>
+        </div>
+    </div>
+</nav>
+
+<main role="main">
+    <section class="hero d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Alya Client</h1>
+
+            <p class="lead mb-4 mx-auto">Alya is a free, open-source Minecraft hack client with advanced features and a
+                user-friendly interface.</p>
+
+            <a class="btn-alya" href="https://github.com/AlyaClient/alya/releases/download/latest/alya-release.zip">
+                Download Latest Release
+            </a>
+        </div>
+    </section>
+
+    <section class="features py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Why Alya?</h2>
+
+            <div class="row g-5 justify-content-center">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <svg class="bi" width="24" height="24" fill="currentColor">
+                            <use xlink:href="/image/icons.svg#bug-fill"></use>
+                        </svg>
+                        <h3 class="h4">Bypasses</h3>
+                        <p class="opacity-75">Alya has a wide range of bypass methods to bypass various anti-cheats.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <svg class="bi" width="24" height="24" fill="currentColor">
+                            <use xlink:href="/image/icons.svg#cash"></use>
+                        </svg>
+                        <h3 class="h4">Quality</h3>
+                        <p class="opacity-75">We strive to provide consistent &amp; frequent updates to stay ahead of
+                            the
+                            curve.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <svg class="bi" width="24" height="24" fill="currentColor">
+                            <use xlink:href="/image/icons.svg#file-code-fill"></use>
+                        </svg>
+                        <h3 class="h4">Scripting</h3>
+                        <p class="opacity-75">Alya's scripting API provides a powerful and flexible way to extend
+                            features.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <svg class="bi" width="24" height="24" fill="currentColor">
+                            <use xlink:href="/image/icons.svg#gear-fill"></use>
+                        </svg>
+                        <h3 class="h4">Configurable</h3>
+                        <p class="opacity-75">Almost all of Alya's modules are customizable, allowing them to fit your
+                            playstyle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="py-5" role="contentinfo">
+    <div class="container">
+        <p class="mb-1">Made with ❤ by Thoq</p>
+
+        <p id="copyright" class="small opacity-50">Copyright &copy; 2025-2026 Alya Client</p>
+    </div>
+</footer>
+
+<button class="scroll-to-top" id="scrollTopBtn">
+    <svg class="bi" width="24" height="24" fill="currentColor">
+        <use xlink:href="/image/icons.svg#chevron-up"></use>
+    </svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"
+        integrity="sha384-fgGyf7Mo7DURSOMnOy7ed+dkq5Job205Gnzu6QIg0BOHKaqt4D76Dt8VlDCzcMHV"
+        crossorigin="anonymous"></script>
+<script src="/app.js"></script>
+</body>
 </html>
