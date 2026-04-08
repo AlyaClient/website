@@ -46,8 +46,10 @@ $(document).ready(() => {
         if(e.target === modal[0]) closeModal();
     });
 
-    $(document).on('keydown', (e) => {
-        if(e.key === 'Escape' && modal.hasClass('active')) closeModal();
+    $(document).on('keydown', (event) => {
+        if(event.key === 'Escape' && modal.hasClass('active')) {
+            closeModal();
+        }
     });
 
     function closeModal() {
