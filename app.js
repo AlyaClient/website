@@ -1,7 +1,7 @@
 $(document).ready(() => {
     const scrollToTopButton = $('.scroll-to-top');
     const showButton = (show) => {
-        if (!show) {
+        if(!show) {
             scrollToTopButton.fadeOut(200, "swing", () => {
                 scrollToTopButton.removeClass('show-flex');
             });
@@ -28,5 +28,31 @@ $(document).ready(() => {
                 behavior: 'smooth'
             });
         }
-    )
+    );
+
+    const modal = $('#screenshotModal');
+    const modalImg = modal.find('img');
+    const modalClose = modal.find('.modal-close');
+
+    $('.screenshots img').on('click', function() {
+        const fullSrc = $(this).data('full');
+        modalImg.attr('src', fullSrc);
+        modal.addClass('active').attr('aria-hidden', 'false');
+        $('body').css('overflow', 'hidden');
+    });
+
+    modalClose.on('click', closeModal);
+    modal.on('click', function(e) {
+        if(e.target === modal[0]) closeModal();
+    });
+
+    $(document).on('keydown', (e) => {
+        if(e.key === 'Escape' && modal.hasClass('active')) closeModal();
+    });
+
+    function closeModal() {
+        modal.removeClass('active').attr('aria-hidden', 'true');
+        $('body').css('overflow', '');
+        setTimeout(() => modalImg.attr('src', ''), 200);
+    }
 });
